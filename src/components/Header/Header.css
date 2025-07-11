@@ -1,0 +1,12 @@
+#header{
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+#header .title{
+    color: var(--txt);
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: bold;
+}

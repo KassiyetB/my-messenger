@@ -1,0 +1,14 @@
+#chat-window{
+    background-color: black;
+    flex: 8;
+}
+
+#chat-body{
+    background-color: #555;
+    height: 80%;
+}
+
+#textbar{
+    background-color: #111;
+    height: 20%;
+}
