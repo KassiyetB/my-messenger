@@ -20,6 +20,7 @@ code {
 
 
 
+
 :root{
   --txt: #000;
   --bg: #fff;
@@ -28,4 +29,10 @@ code {
 [theme="dark"]{
   --txt: #fff;
   --bg: #000;
+}
+
+
+
+.btn{
+  padding: 0 5px;
 }

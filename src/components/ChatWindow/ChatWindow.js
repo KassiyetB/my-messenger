@@ -67,7 +67,7 @@ const TextBar = () => {
           onChange={handleChange}
           placeholder="Type here..."
           rows={1} cols={40}/>
-          <input type="submit" value="send"/>
+          <input className="btn" type="submit" value="send"/>
         </div>
       </form>
     </div>
