@@ -5,10 +5,56 @@
 
 #chat-body{
     background-color: #555;
-    height: 80%;
+    padding: 1px;
+    height: 90%;
+}
+
+.message{
+    max-width: 50%;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px 5px 5px 0px;
+    background-color: #898;
+}
+
+.message .message-time{
+    text-align: right;
+    font-size: 12px;
 }
 
 #textbar{
-    background-color: #111;
-    height: 20%;
+    height: 10%;
+    position: relative;
 }
+
+#textbar-form{
+    position: absolute;
+    background-color: #111;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+
+}
+
+#textbar-form *{
+    font-size: 16px;
+}
+
+#textbar-form-inputbar{
+    display: flex;
+    width: 80%;
+    align-items: end;
+    margin: 20px;
+}
+
+#textbar textarea{
+    resize: none;
+    height: 100%;
+    border: none;
+    padding: 2px;
+    margin: 0 10px;
+}
+

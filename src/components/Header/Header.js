@@ -15,7 +15,7 @@ const Header = ({theme, setTheme}) => {
 
     return (
         <div id="header">
-            <a class="title" href="/">Messenger</a>
+            <a className ="title" href="/">Messenger</a>
             <ul id='header-menu' style={{listStyle:"none"}}>
                 <li>
                      <div
