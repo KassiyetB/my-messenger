@@ -10,7 +10,9 @@
 }
 
 footer{
-  background-color: #ddd;
+  background-color: var(--bg);
+  color: var(--txt);
   height: 100%;
 }
+
 

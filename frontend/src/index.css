@@ -19,7 +19,9 @@ code {
 }
 
 
-
+p, span, label{
+  color: var(--txt);
+}
 
 :root{
   --txt: #000;
@@ -32,7 +34,20 @@ code {
 }
 
 
+button{
+  cursor: pointer;
+}
 
 .btn{
   padding: 0 5px;
+}
+
+.btn-ghost{
+  border: none;
+  background: none;
+}
+
+.clk-a{
+  color: var(--txt);
+  text-decoration: none;
 }

@@ -1,5 +1,7 @@
+import { useState } from "react";
 import "./Header.css"
 import { CiLight, CiDark } from "react-icons/ci";
+import Auth from "../Auth/Auth";
 
 const Header = ({theme, setTheme}) => {
 
@@ -13,10 +15,19 @@ const Header = ({theme, setTheme}) => {
         }
     }
 
+    const [showAuth, setShowAuth] = useState(false);
+    const toggleAuth = (e) => {
+        e.preventDefault();
+        setShowAuth(!showAuth);
+
+    }
+
     return (
         <div id="header">
-            <a className ="title" href="/">Messenger</a>
+            <a className ="title clk-a" href="/">Messenger</a>
             <ul id='header-menu' style={{listStyle:"none"}}>
+                <li><a href="/" className="clk-a" onClick={toggleAuth}>Sign Up</a></li>
+                {showAuth && <Auth isOpen={showAuth} onClose={toggleAuth}/>}
                 <li>
                      <div
                         onClick={switchTheme}

@@ -2,11 +2,19 @@
     height: 80px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 #header .title{
-    color: var(--txt);
     font-size: 22px;
-    text-decoration: none;
     font-weight: bold;
+}
+
+#header-menu{
+    display: flex;
+}
+
+#header-menu > *{
+    margin: 0 5px;
 }
