@@ -3,7 +3,7 @@ import "./Header.css"
 import { CiLight, CiDark } from "react-icons/ci";
 import Auth from "../Auth/Auth";
 
-const Header = ({theme, setTheme}) => {
+const Header = ({theme, setTheme, loggedIn}) => {
 
     const switchTheme = () => {
         switch(theme){
@@ -22,11 +22,21 @@ const Header = ({theme, setTheme}) => {
 
     }
 
+    const toggleLogOut = (e) => {
+        localStorage.removeItem("token");
+        window.location.reload();
+
+    }
+
     return (
         <div id="header">
             <a className ="title clk-a" href="/">Messenger</a>
             <ul id='header-menu' style={{listStyle:"none"}}>
-                <li><a href="/" className="clk-a" onClick={toggleAuth}>Sign Up</a></li>
+                {
+                    loggedIn 
+                    ? <li><a href="/" className="clk-a" onClick={toggleLogOut}>Log Out</a></li> 
+                    : <li><a href="/" className="clk-a" onClick={toggleAuth}>Sign Up</a></li>
+                }
                 {showAuth && <Auth isOpen={showAuth} onClose={toggleAuth}/>}
                 <li>
                      <div

@@ -11,7 +11,7 @@ Content-Type: application/json
 ###
 
 ### Login
-POST http://localhost:3000/api/auth/login
+POST 
 Content-Type: application/json
 
 {
@@ -22,4 +22,4 @@ Content-Type: application/json
 
 ### Protected Route (replace <TOKEN> with real token from login)
 GET http://localhost:3000/api/auth/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODc0YjcxZDZiYjI2ODI2ZDFmMjUwZTgiLCJpYXQiOjE3NTI0Nzk3NDYsImV4cCI6MTc1NTA3MTc0Nn0.Glvli3Pz6afldTAnyGS9XKIduyjaKHzM28NdlGh20Ow
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODc0YjcxZDZiYjI2ODI2ZDFmMjUwZTgiLCJpYXQiOjE3NTI0ODAzNjksImV4cCI6MTc1NTA3MjM2OX0.J0yub_ANvmlcvhe_iE7Chd5nFRne5ISJQvJ7XOdFsnI
