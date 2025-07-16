@@ -23,3 +23,12 @@ Content-Type: application/json
 ### Protected Route (replace <TOKEN> with real token from login)
 GET http://localhost:3000/api/auth/profile
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODc0YjcxZDZiYjI2ODI2ZDFmMjUwZTgiLCJpYXQiOjE3NTI0ODAzNjksImV4cCI6MTc1NTA3MjM2OX0.J0yub_ANvmlcvhe_iE7Chd5nFRne5ISJQvJ7XOdFsnI
+
+###
+POST http://localhost:5000/api/contact/add-friend
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODc2YWE5MzBmYjMwMTZkOTFjM2RjMGYiLCJpYXQiOjE3NTI2MDgzNjUsImV4cCI6MTc1NTIwMDM2NX0.y69pHTCCAtJxfLgwCS2J7TeYxa2eVD9Ppbl81modtHI
+
+{
+  "shortId":"1iGsEslk"
+}

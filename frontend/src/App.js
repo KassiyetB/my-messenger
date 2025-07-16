@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import ContactList from './components/ContactList/ContactList';
 import ChatWindow from './components/ChatWindow/ChatWindow';
+const API_URL = process.env.REACT_APP_API_URL;
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
@@ -23,7 +24,7 @@ function App() {
       }
 
       try {
-        const res = await fetch('http://localhost:5000/api/auth/profile', {
+        const res = await fetch(`${API_URL}auth/profile`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -32,7 +33,6 @@ function App() {
         if (res.ok) {
           setLoggedIn(true);
           const data = await res.json();
-          console.log(data);
           localStorage.setItem('user', JSON.stringify(data))
         } else {
           localStorage.removeItem('token');

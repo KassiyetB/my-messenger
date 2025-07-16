@@ -1,6 +1,8 @@
+const API_URL = process.env.REACT_APP_API_URL;
+
 export const signupUser = async (username, email, password) => {
   try {
-    const response = await fetch('http://localhost:5000/api/auth/signup', {
+    const response = await fetch(`${API_URL}auth/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -13,8 +15,7 @@ export const signupUser = async (username, email, password) => {
     if (!response.ok) {
       throw new Error(data.msg || 'Signup failed');
     }
-    const result = await loginUser(email, password);
-    console.log(result.token);
+    await loginUser(email, password);
     return { success: true };
   } catch (err) {
     return { success: false, error: err.message };
@@ -23,7 +24,7 @@ export const signupUser = async (username, email, password) => {
 
 export const loginUser = async (email, password) => {
     try{
-        const response = await fetch('http://localhost:5000/api/auth/login', {
+        const response = await fetch(`${API_URL}auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

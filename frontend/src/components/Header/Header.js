@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./Header.css"
-import { CiLight, CiDark } from "react-icons/ci";
+import { CiLight, CiDark, CiCirclePlus } from "react-icons/ci";
 import Auth from "../Auth/Auth";
+import { addFriend } from "./menuService";
 
 const Header = ({theme, setTheme, loggedIn}) => {
 
@@ -28,13 +29,33 @@ const Header = ({theme, setTheme, loggedIn}) => {
 
     }
 
+    const [friendId, setFriendId] = useState('');
+    const handleNewFriendForm = e => {
+        e.preventDefault();
+        if (!friendId.trim()) return;
+        addFriend(friendId);
+        setFriendId('');
+    }
+
     return (
         <div id="header">
             <a className ="title clk-a" href="/">Messenger</a>
             <ul id='header-menu' style={{listStyle:"none"}}>
                 {
                     loggedIn 
-                    ? <li><a href="/" className="clk-a" onClick={toggleLogOut}>Log Out</a></li> 
+                    ? <>
+                        <li>
+                            <form onSubmit={handleNewFriendForm}>
+                                <input 
+                                    type="text" 
+                                    value={friendId}
+                                    onChange={(e) => setFriendId(e.target.value)}
+                                />
+                                <input type="submit" value="+" />
+                            </form>
+                        </li>
+                        <li><a href="/" className="clk-a" onClick={toggleLogOut}>Log Out</a></li> 
+                    </>
                     : <li><a href="/" className="clk-a" onClick={toggleAuth}>Sign Up</a></li>
                 }
                 {showAuth && <Auth isOpen={showAuth} onClose={toggleAuth}/>}
@@ -43,7 +64,7 @@ const Header = ({theme, setTheme, loggedIn}) => {
                         onClick={switchTheme}
                         onKeyDown={(e) => { if (e.key === 'Enter') switchTheme(); }}
                         tabIndex={0}
-                        style={{ color: "var(--txt)", cursor: 'pointer', display:"flex", alignItems:"center" }}
+                        style={{ color: "var(--txt)", display:"flex", alignItems:"center" }}
                         role="button"
                         aria-label="Toggle theme"
                     >
