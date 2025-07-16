@@ -2,14 +2,12 @@ import './Auth.css'
 import { useState } from 'react';
 import { signupUser, loginUser } from './authService';
 
-const Auth = ({isOpen, onClose}) => {
+const Auth = ({onClose}) => {
     const [login, setLogin] = useState(false);
 
-    if(!isOpen) return null;
-
     return (
-        <div id='auth'>
-            <div id='auth-box'>
+        <div className='modal'>
+            <div className='modal-box'>
                 <button id='auth-close-btn' className='btn-ghost' onClick={e=>{
                     setLogin(false);
                     onClose(e);

@@ -15,7 +15,15 @@
     display: flex;
 }
 
-#header-menu > *{
+#header-menu li{
     margin: 0 5px;
     cursor: pointer;
+}
+
+#add-friend-form{
+    text-align: center;
+}
+
+#add-friend-form >*{
+    margin: 0 3px;
 }

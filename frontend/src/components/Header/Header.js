@@ -29,13 +29,15 @@ const Header = ({theme, setTheme, loggedIn}) => {
 
     }
 
-    const [friendId, setFriendId] = useState('');
-    const handleNewFriendForm = e => {
+    const [showAddFriend, setShowAddFriend] = useState(false);
+    const toggleAddFriend = (e) => {
         e.preventDefault();
-        if (!friendId.trim()) return;
-        addFriend(friendId);
-        setFriendId('');
+        setShowAddFriend(!showAddFriend);
+
     }
+
+    
+    
 
     return (
         <div id="header">
@@ -44,21 +46,13 @@ const Header = ({theme, setTheme, loggedIn}) => {
                 {
                     loggedIn 
                     ? <>
-                        <li>
-                            <form onSubmit={handleNewFriendForm}>
-                                <input 
-                                    type="text" 
-                                    value={friendId}
-                                    onChange={(e) => setFriendId(e.target.value)}
-                                />
-                                <input type="submit" value="+" />
-                            </form>
-                        </li>
+                        <li><CiCirclePlus size={24} onClick={toggleAddFriend}  /></li>
                         <li><a href="/" className="clk-a" onClick={toggleLogOut}>Log Out</a></li> 
                     </>
                     : <li><a href="/" className="clk-a" onClick={toggleAuth}>Sign Up</a></li>
                 }
-                {showAuth && <Auth isOpen={showAuth} onClose={toggleAuth}/>}
+                {showAuth && <Auth onClose={toggleAuth}/>}
+                {showAddFriend && <AddFriendModal onClose={toggleAddFriend}/>}
                 <li>
                      <div
                         onClick={switchTheme}
@@ -72,6 +66,36 @@ const Header = ({theme, setTheme, loggedIn}) => {
                     </div>
                 </li>
             </ul>
+        </div>
+    )
+}
+
+
+const AddFriendModal = ({onClose}) => {
+    const [friendId, setFriendId] = useState('');
+    const handleNewFriendForm = e => {
+        e.preventDefault();
+        if (!friendId.trim()) return;
+        addFriend(friendId);
+        setFriendId('');
+    }
+    return (
+        <div className="modal">
+            <div className="modal-box">
+                <button id='auth-close-btn' className='btn-ghost' onClick={e=>{
+                    onClose(e);
+                }}><p>X</p></button>
+                <form id="add-friend-form" onSubmit={handleNewFriendForm}>
+                    
+                    <input 
+                        type="text" 
+                        value={friendId}
+                        placeholder="Type friend's short ID ..."
+                        onChange={(e) => setFriendId(e.target.value)}
+                    />
+                    <input type="submit" className="btn" value="Add" />
+                </form>
+            </div>
         </div>
     )
 }

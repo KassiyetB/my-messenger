@@ -5,13 +5,13 @@ export const addFriend = async friendId => {
     const token = localStorage.getItem('token');
 
     try{
-        const response = fetch(`${API_URL}contact/add-friend`, {
+        const response = await fetch(`${API_URL}contact/add-friend`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({friendId})
+            body: JSON.stringify({ shortId: friendId})
         });
 
         const data = await response.json();
